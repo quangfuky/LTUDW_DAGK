@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
-<title>DAGK</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/w3css.css">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>DAGK</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <link rel="stylesheet" href="css/w3css.css">
+  <link rel="stylesheet" href="app.css">
+  <script type="text/javascript" src="app.js"></script>
+</head>
 
 <body style=" background-color:white">
   <div>
@@ -216,30 +227,6 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
   </div>
 
 
-  <script>
-    // Get the modal
-    var modal = document.getElementsByClassName("editModal");
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      for (i = 0; i < modal.length; i++) {
-        if (event.target == modal[i]) {
-          modal[i].style.display = "none";
-        }
-      }
-    }
-
-    function showEditButton() {
-      var buttonEdit = document.getElementsByClassName("editButton");
-      for (i = 0; i < buttonEdit.length; i++) {
-        if (buttonEdit[i].style.display == "block") {
-          buttonEdit[i].style.display = "none";
-        } else {
-          buttonEdit[i].style.display = "block";
-        }
-      }
-    }
-  </script>
 
   <!-- End edit popup -->
 </body>

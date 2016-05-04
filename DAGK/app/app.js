@@ -1,12 +1,24 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+// Get the modal
+var modal = document.getElementsByClassName("editModal");
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  for (var i = 0; i < modal.length; i++) {
+    if (event.target == modal[i]) {
+      modal[i].style.display = "none";
+    }
+  }
+}
+
+function showEditButton() {
+  var buttonEdit = document.getElementsByClassName("editButton");
+  for (var i = 0; i < buttonEdit.length; i++) {
+    if (buttonEdit[i].style.display == "block") {
+      buttonEdit[i].style.display = "none";
+    } else {
+      buttonEdit[i].style.display = "block";
+    }
+  }
+}
