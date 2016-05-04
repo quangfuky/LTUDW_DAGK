@@ -22,3 +22,16 @@ function showEditButton() {
     }
   }
 }
+
+var app = angular.module('myApp', []);
+
+app.controller('userCtrl', function($scope, $http) {
+    $http.get("data/user.json").then(function(response) {
+        $scope.myUser = response.data.info;
+        $scope.sumary = response.data.sumary;
+        $scope.experience = response.data.experience;
+        $scope.project = response.data.project;
+        $scope.skill = response.data.skill;
+        $scope.education = response.data.education;
+    });
+});

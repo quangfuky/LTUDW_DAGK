@@ -1,0 +1,56 @@
+{
+  "info": {
+    "name": "Jeff Weiner",
+    "job": "CEO at LinkedIn",
+    "current": "LinkedIn, CEO",
+    "previous": "LinkedIn",
+    "education": "University of Pennsylvania",
+    "image": "images/user.jpg"
+  },
+  "sumary": "Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. \nCurrently CEO at LinkedIn, the web's largest and most powerful network of professionals. \nPrior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities. \nPreviously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products. \nSpecialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance",
+  "experience": [
+    {
+      "job": "CEO",
+      "place": "LinkedIn",
+      "describe": "Connecting the world's professionals to make them more productive and successful. Since joining the company in December 2008, LinkedIn has expanded its global platform to 23 languages and more than 30 offices around the world, grown its membership base from 33M to more than 347M, and increased its revenue from $78M to over $2.2B in 2014."
+    },
+    {
+      "job": "Member, Board of Directors",
+      "place": "Intuit",
+      "describe": "With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions."
+    },
+    {
+      "job": "Member, Board of Directors",
+      "place": "DonorsChoose",
+      "describe": "One of the web's leading philanthropic marketplaces, designed to enable teachers to upload classroom projects in need of funding, and for anyone to select and fund a project."
+    }
+  ],
+  "project": [
+    {
+      "projectname": "BankBot",
+      "describe": "A system for automatically get bank transactions from internet banking websites and synchronize with local database."
+    },
+    {
+      "projectname": "WebBot",
+      "describe": "Web automation and extraction recorder and execution"
+    }
+  ],
+  "skill": [
+    "CSharp",
+    "Java",
+    "PHP",
+    "Business Strategy",
+    "Leadership",
+    "Entrepreneurship"
+  ],
+  "education": [
+    {
+      "school": "University of Pennsylvania - The Wharton School",
+      "time": "1988 – June 1992"
+    },
+    {
+      "school": "University of Pennsylvania - The Wharton School",
+      "time": "1988 – June 1992"
+    }
+  ]
+}
