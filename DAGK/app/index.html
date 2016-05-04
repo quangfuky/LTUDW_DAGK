@@ -60,13 +60,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           </div>
           <div class="w3-container w3-small w3-padding-ver-64">
             <p>
-              Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.
-              <br/> Currently CEO at LinkedIn, the web's largest and most powerful network of professionals.
-              <br/> Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely
-              with the firm’s partners to evaluate new investment opportunities.
-              <br/> Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail,
-              Search, and Media products.
-              <br/> Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance </p>
+              {{sumary}}</p>
           </div>
           <hr align="right" style="width:80%">
 
@@ -76,33 +70,14 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
-              <li>
+              <li ng-repeat="x in experience">
                 <div>
                   <div>
-                    <h4><b>CEO</b></h4>
-                    <p style="margin:0px"><span class="w3-opacity">LinkedIn</span></p>
+                    <h4><b>{{x.job}}</b></h4>
+                    <p style="margin:0px"><span class="w3-opacity">{{x.place}}</span></p>
                   </div>
                   <p>
-                    Connecting the world's professionals to make them more productive and successful. Since joining the company in December 2008, LinkedIn has expanded its global platform to 23 languages and more than 30 offices around the world, grown its membership base
-                    from 33M to more than 347M, and increased its revenue from $78M to over $2.2B in 2014.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h4><b>Member, Board of Directors</b></h4>
-                  <p style="margin:0px"><span class="w3-opacity">Intuit</span></p>
-                  <p>
-                    With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h4><b>Member, Board of Directors</b></h4>
-                  <p style="margin:0px"><span class="w3-opacity">DonorsChoose</span></p>
-                  <p>
-                    One of the web's leading philanthropic marketplaces, designed to enable teachers to upload classroom projects in need of funding, and for anyone to select and fund a project.
+                    {{x.describe}}
                   </p>
                 </div>
               </li>
@@ -119,19 +94,11 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
-              <li>
+              <li ng-repeat="x in project">
                 <div>
-                  <h4><b>BankBot</b></h4>
+                  <h4><b>{{x.projectname}}</b></h4>
                   <p>
-                    A system for automatically get bank transactions from internet banking websites and synchronize with local database.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <h4><b>WebBot</b></h4>
-                  <p>
-                    Web automation and extraction recorder and execution
+                    {{x.describe}}
                   </p>
                 </div>
               </li>
@@ -144,27 +111,30 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
-              <li>
-                <span class="w3-card-2">Csharp</span>
+              <li ng-repeat="x in skill">
+                <span class="w3-card-2">{{x}}</span>
               </li>
-              <li>
-                <span class="w3-card-2">PHP</span>
-              </li>
-              <li>
-                <span class="w3-card-2">Java</span>
-              </li>
-              <li>
-                <span class="w3-card-2">Business Strategy</span>
-              </li>
-              <li>
-                <span class="w3-card-2">Leadership</span>
-              </li>
-              <li>
-                <span class="w3-card-2">Entrepreneurship</span>
-              </li>
+             
             </ul>
           </div>
           <hr style="width:80%">
+          
+          <!-- cai nay la tung muc -->
+          <div class="w3-container">
+            <h5 class="w3-margin-left">Education</h5>
+          </div>
+          <div class="w3-container w3-small w3-padding-ver-32">
+            <ul class="w3-ul">
+              <li ng-repeat="x in education">
+                <div>
+                  <h4><b>{{x.school}}</b></h4>
+                  <p class="w3-opacity">
+                    {{x.time}}
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="w3-card-4 w3-rest">
@@ -184,8 +154,6 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
     </div>
 
     <!-- Edit popup windows -->
-    <button onclick="document.getElementById('id02').style.display='block'" class="w3-btn">Open Modal</button>
-
     <div id="id01" class="w3-modal editModal">
       <div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px">
         <div class="w3-container w3-blue">
@@ -194,7 +162,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
         </div>
         <form class="w3-container">
           <label clas="w3-label">Edit</label>
-          <textarea class="w3-input" rows="4" style="resize:horizontal"> 
+          <textarea ng-model="sumary" value="{{sumary}}" class="w3-input" rows="4" style="resize:horizontal"> 
 			</textarea>
         </form>
         <div class="w3-container w3-blue">
