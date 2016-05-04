@@ -1,43 +1,250 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<html>
+<title>DAGK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body style=" background-color:white">
+<div>
+<ul class="w3-navbar w3-black w3-padding">
+  <li><a href="#">Home</a></li>
+  <li><a href="#" onclick=showEditButton()>Edit</a></li>
+</ul>
+</div>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
 
-  <div ng-view></div>
+<div class="w3-content" style="width:70%">
+<div class="w3-card-4 w3-margin">
+ <div class="w3-row">
+ <div class="w3-quarter">
+  <img src="images/user.jpg" alt="Nature" style="width:100%; height:100%">
+ </div>
+ <div class="w3-threequarter w3-padding-ver-16">
+  <div class="w3-container w3-padding-hor-8">
+    <h3><b>Jeff Weiner</b><span class="w3-right"><button onclick="document.getElementById('id02').style.display='block'"
+class="w3-btn editButton" style="display:none">Edit</button><span></h3>
+    <h5><span class="w3-opacity">CEO at LinkedIn</span></h5>
+  </div>
+  <div class="w3-container w3-small">
+	<p style="margin:0px"><span class="w3-opacity">Current: </span>LinkedIn, CEO</p>
+	<p style="margin:0px"><span class="w3-opacity">Previous: </span>LinkedIn, CEO</p>
+	<p style="margin:0px"><span class="w3-opacity">Education: </span>LinkedIn, CEO</p>	
+  </div>
+  </div>
+ </div>
+</div>
 
-  <div>Angular seed app: v<span app-version></span></div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+
+<div class="w3-container w3-row">
+<div class="w3-card-4 w3-col w3-margin-right w3-margin-bottom" style="width:70%">
+<header class="w3-container w3-green">
+	<h3><b>BACKGROUND</b></h3>
+	</header>
+  <div class="w3-container w3-padding-hor-8">
+    <h4 class="w3-margin-left" style="color:green;">Summary <button onclick="document.getElementById('id01').style.display='block'"
+class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
+		
+  </div>
+  <div class="w3-container w3-small w3-padding-ver-64">
+    <p>
+Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. 
+<br/>
+Currently CEO at LinkedIn, the web's largest and most powerful network of professionals. 
+<br/>
+Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.
+<br/>
+Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.
+<br/>
+Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance    </p>
+  </div>
+  <hr align="right" style="width:80%">
+  
+  <!-- cai nay la tung muc -->
+  <div class="w3-container">
+    <h5 class="w3-margin-left">Experient</h5>
+  </div>
+  <div class="w3-container w3-small w3-padding-ver-32">
+    <ul class="w3-ul">
+		<li>
+		<div>
+			<div>
+				<h4><b>CEO</b></h4>
+				<p style="margin:0px"><span class="w3-opacity">LinkedIn</span></p>
+			</div>
+			<p>
+			Connecting the world's professionals to make them more productive and successful. Since joining the company in December 2008, LinkedIn has expanded its global platform to 23 languages and more than 30 offices around the world, grown its membership base from 33M to more than 347M, and increased its revenue from $78M to over $2.2B in 2014.
+			</p>
+		</div>
+		</li>
+		<li>
+		<div>
+			<h4><b>Member, Board of Directors</b></h4>
+			<p style="margin:0px"><span class="w3-opacity">Intuit</span></p>
+			<p>
+			With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions. 
+			</p>
+		</div>
+		</li>
+		<li>
+		<div>
+			<h4>CEO</h4>
+			<p>
+			Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. 
+			</p>
+		</div>
+		</li>
+		<li>
+		<div>
+			<h4>CEO</h4>
+			<p>
+			Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. 
+			</p>
+		</div>
+		</li>
+	</ul>
+  </div>
+  
+  <div class="w3-center">
+  <hr style="width:80%">
+  </div>
+
+  <!-- cai nay la tung muc -->
+  <div class="w3-container">
+    <h5 class="w3-margin-left">Project</h5>
+  </div>
+  <div class="w3-container w3-small w3-padding-ver-32">
+    <ul class="w3-ul">
+		<li>
+		<div>
+			<h4>CEO</h4>
+			<p>
+			Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. 
+			</p>
+		</div>
+		</li>
+		<li>
+		<div>
+			<h4>CEO</h4>
+			<p>
+			Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. 
+			</p>
+		</div>
+		</li>
+		<li>
+		<div>
+			<h4>CEO</h4>
+			<p>
+			Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. 
+			</p>
+		</div>
+		</li>
+		<li>
+		<div>
+			<h4>CEO</h4>
+			<p>
+			Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy. 
+			</p>
+		</div>
+		</li>
+	</ul>
+  </div>
+  
+  <div class="w3-center">
+  <hr style="width:80%">
+  </div>  
+</div>
+
+<div class="w3-card-4 w3-rest">
+  <div class="w3-container w3-padding-hor-8">
+    <h3><b>TITLE HEADING</b></h3>
+    <h5>Title description
+    <span class="w3-opacity">April 7, 2014</span></h5>
+  </div>
+  <div class="w3-container">
+    <p>
+Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum.
+    </p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Edit popup windows -->
+<button onclick="document.getElementById('id02').style.display='block'"
+class="w3-btn">Open Modal</button>
+
+<div id="id01" class="w3-modal editModal">
+	<div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px">
+		<div class="w3-container w3-blue">
+		  <span onclick="document.getElementById('id01').style.display='none'" 
+		  class="w3-closebtn">&times;</span>
+			<h4>Sumary</h4>
+		</div>
+		<form class="w3-container">
+			<label clas="w3-label">Edit</label>
+			<textarea class="w3-input" rows="4" style="resize:horizontal"> 
+			</textarea>
+		</form>
+		<div class="w3-container w3-blue">
+			<h5>Footer</h5>
+		</div>
+	</div>
+</div>
+
+<div id="id02" class="w3-modal editModal">
+	<div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px">
+		<div class="w3-container w3-blue">
+		  <span onclick="document.getElementById('id02').style.display='none'" 
+		  class="w3-closebtn">&times;</span>
+			<h4>Sumary</h4>
+		</div>
+		<form class="w3-container">
+			<label clas="w3-label">Name</label>
+			<input class="w3-input" placeholder="Enter name"/>	
+			<label clas="w3-label" >Jobs</label>
+			<input class="w3-input"placeholder="Your job"/>
+			<label clas="w3-label" >Current</label>
+			<input class="w3-input"placeholder="Your job"/>
+			<label clas="w3-label" >Previous</label>
+			<input class="w3-input"placeholder="Your job"/>
+			<label clas="w3-label" >Education</label>
+			<input class="w3-input"placeholder="Your job"/>
+		</form>
+		<div class="w3-container w3-blue">
+			<h5>Footer</h5>
+		</div>
+	</div>
+</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementsByClassName("editModal");
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	for (i = 0; i < modal.length; i++) {
+        if (event.target == modal[i]) {
+        modal[i].style.display = "none";
+		}
+    }
+}
+
+function showEditButton(){
+var buttonEdit = document.getElementsByClassName("editButton");
+	for(i=0; i<buttonEdit.length; i++){
+		if(buttonEdit[i].style.display == "block")
+		{
+		buttonEdit[i].style.display = "none";
+		}
+		else
+		{
+		buttonEdit[i].style.display = "block";
+		}
+	}
+}
+</script>
+
+<!-- End edit popup -->
 </body>
-</html>
+</html> 
