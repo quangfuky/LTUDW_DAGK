@@ -19,8 +19,10 @@
 
 <body ng-app="myApp" ng-controller="userCtrl">
   <div>
-    <ul class="w3-navbar w3-black w3-padding">
-      <li><a href="#" ng-bind="myUser.name"></a></li>
+    <ul class="w3-navbar w3-green w3-padding">
+      <li>
+        <a href="#" ng-bind="myUser.name"></a>
+      </li>
       <li><a href="#" onclick=showEditButton()>Edit</a></li>
     </ul>
   </div>
@@ -66,7 +68,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
 
           <!-- cai nay la tung muc -->
           <div class="w3-container">
-            <h5 class="w3-margin-left">Experient</h5>
+            <h5 class="w3-margin-left">Experient <span class="w3-right"> <button onclick="document.getElementById('id05').style.display='block'" class="w3-btn editButton" style="display:none">Edit</button></span></h5>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
@@ -90,7 +92,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
 
           <!-- cai nay la tung muc -->
           <div class="w3-container">
-            <h5 class="w3-margin-left">Project</h5>
+            <h5 class="w3-margin-left">Project <span class="w3-right"><button onclick="document.getElementById('id04').style.display='block'" class="w3-btn editButton" style="display:none">Edit</button></span></h5>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
@@ -107,21 +109,22 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           <hr style="width:80%">
           <!-- cai nay la tung muc -->
           <div class="w3-container">
-            <h5 class="w3-margin-left">Skill</h5>
+            <h5 class="w3-margin-left">Skill<span class="w3-right"><button onclick="document.getElementById('id03').style.display='block'"
+class="w3-btn editButton" style="display:none">Edit</button></span></h5>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
               <li ng-repeat="x in skill">
-                <span class="w3-card-2">{{x}}</span>
+                <span class="w3-card-2">{{x.skill}}</span>
               </li>
-             
+
             </ul>
           </div>
           <hr style="width:80%">
-          
+
           <!-- cai nay la tung muc -->
           <div class="w3-container">
-            <h5 class="w3-margin-left">Education</h5>
+            <h5 class="w3-margin-left">Education <span class="w3-right"><button onclick="document.getElementById('id06').style.display='block'" class="w3-btn editButton" style="display:none">Edit</button></span></h5>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
@@ -139,14 +142,16 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
 
         <div class="w3-card-4 w3-rest">
           <div class="w3-container w3-padding-hor-8">
-            <h3><b>TITLE HEADING</b></h3>
-            <h5>Title description
-    <span class="w3-opacity">April 7, 2014</span></h5>
+            <h3><b>DO AN GIUA KI</b></h3>
+            <h5>Angularjs
+    <span class="w3-opacity">May 5, 2016</span></h5>
           </div>
           <div class="w3-container">
-            <p>
-              Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus
-              ut rutrum.
+            <p class="w3-small">
+              Sử dụng AngularJS để xây dựng trang CV cá nhân tương tự như của LinkedIn (tham khảo
+https://www.linkedin.com). Dữ liệu mặc định được tổ chức thành các tập tin
+json và thông qua AngularJS để đọc và hiển thị. Từ trang web mặc định có thể thông qua giao
+diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
             </p>
           </div>
         </div>
@@ -154,6 +159,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
     </div>
 
     <!-- Edit popup windows -->
+
     <div id="id01" class="w3-modal editModal">
       <div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px">
         <div class="w3-container w3-blue">
@@ -161,12 +167,11 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           <h4>Sumary</h4>
         </div>
         <form class="w3-container">
-          <label clas="w3-label">Edit</label>
-          <textarea ng-model="sumary" value="{{sumary}}" class="w3-input" rows="4" style="resize:horizontal"> 
+          <textarea ng-model="sumary" value="{{sumary}}" class="w3-input" rows="10" style="resize:horizontal"> 
 			</textarea>
         </form>
         <div class="w3-container w3-blue">
-          <h5>Footer</h5>
+          <h5></h5>
         </div>
       </div>
     </div>
@@ -175,31 +180,114 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
       <div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px">
         <div class="w3-container w3-blue">
           <span onclick="document.getElementById('id02').style.display='none'" class="w3-closebtn">&times;</span>
-          <h4>Sumary</h4>
+          <h4>Profile</h4>
         </div>
         <form class="w3-container">
           <label clas="w3-label">Name</label>
-          <input class=" w3-input w3-green editButton" type="text" ng-model="myUser.name" value="{{myUser.name}}"></input>
+          <input class=" w3-input" type="text" ng-model="myUser.name" value="{{myUser.name}}"></input>
           <label clas="w3-label">Jobs</label>
-          <input class="w3-input" placeholder="Your job" />
+          <input class="w3-input" type="text" ng-model="myUser.job" value="{{myUser.name}}" />
           <label clas="w3-label">Current</label>
-          <input class="w3-input" placeholder="Your job" />
+          <input class="w3-input" type="text" ng-model="myUser.current" value="{{myUser.name}}" />
           <label clas="w3-label">Previous</label>
-          <input class="w3-input" placeholder="Your job" />
+          <input class="w3-input" type="text" ng-model="myUser.previous" value="{{myUser.name}}" />
           <label clas="w3-label">Education</label>
-          <input class="w3-input" placeholder="Your job" />
+          <input class="w3-input" type="text" ng-model="myUser.education" value="{{myUser.name}}" />
         </form>
         <div class="w3-container w3-blue">
-          <h5>Footer</h5>
+          <h5></h5>
         </div>
       </div>
     </div>
+
+    <div id="id03" class="w3-modal editModal">
+      <div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px">
+        <div class="w3-container w3-blue">
+          <span onclick="document.getElementById('id03').style.display='none'" class="w3-closebtn">&times;</span>
+          <h4>Skill</h4>
+        </div>
+        <form class="w3-container" ng-repeat="x in skill">
+          <input type="text" ng-model="x.skill" value="{{x.skill}}" class="w3-input" rows="4" style="resize:horizontal">
+          </input>
+        </form>
+        <div class="w3-container w3-blue">
+          <h5></h5>
+        </div>
+      </div>
+    </div>
+
+    <div id="id04" class="w3-modal editModal">
+      <div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px">
+        <div class="w3-container w3-blue">
+          <span onclick="document.getElementById('id04').style.display='none'" class="w3-closebtn">&times;</span>
+          <h4>Project</h4>
+        </div>
+        <form class="w3-container" ng-repeat="x in project">
+          <label class="w3-label">Name</label>
+          <input type="text" ng-model="x.projectname" value="{{x.projectname}}" class="w3-input">
+          </input>
+          <label class="w3-label">Description</label>
+          <textarea type="text" ng-model="x.describe" value="{{x.describe}}" class="w3-input" rows="4">
+          </textarea>
+          <hr/>
+        </form>
+        <div class="w3-container w3-blue">
+          <h5></h5>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="id05" class="w3-modal editModal">
+      <div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px; margin-top:-50px">
+        <div class="w3-container w3-blue">
+          <span onclick="document.getElementById('id05').style.display='none'" class="w3-closebtn">&times;</span>
+          <h4>Experience</h4>
+        </div>
+        <form class="w3-container" ng-repeat="x in experience">
+          <label class="w3-label">Job</label>
+          <input type="text" ng-model="x.job" value="{{x.job}}" class="w3-input">
+          </input>
+          <label class="w3-label">Place</label>
+          <input type="text" ng-model="x.place" value="{{x.place}}" class="w3-input">
+          </input>
+          <label class="w3-label">Description</label>
+          <textarea type="text" ng-model="x.describe" value="{{x.describe}}" class="w3-input" rows="4">
+          </textarea>
+          <hr/>
+        </form>
+        <div class="w3-container w3-blue">
+          <h5></h5>
+        </div>
+      </div>
+    </div>
+
+    <div id="id06" class="w3-modal editModal">
+      <div class="w3-modal-content w3-card-4 w3-right w3-margin-right w3-animate-zoom" style="width:400px; margin-top:-50px">
+        <div class="w3-container w3-blue">
+          <span onclick="document.getElementById('id06').style.display='none'" class="w3-closebtn">&times;</span>
+          <h4>Experience</h4>
+        </div>
+        <form class="w3-container" ng-repeat="x in education">
+          <label class="w3-label">School</label>
+          <input type="text" ng-model="x.school" value="{{x.school}}" class="w3-input">
+          </input>
+          <label class="w3-label">Time</label>
+          <input type="text" ng-model="x.time" value="{{x.time}}" class="w3-input">
+          </input>
+          <hr/>
+        </form>
+        <div class="w3-container w3-blue">
+          <h5></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-container w3-green w3-center">
+      <h5>DAGK</h5>
+    </div>
+
   </div>
-
-
-
-
-
   <!-- End edit popup -->
 </body>
 

@@ -36,12 +36,24 @@
     }
   ],
   "skill": [
-    "CSharp",
-    "Java",
-    "PHP",
-    "Business Strategy",
-    "Leadership",
-    "Entrepreneurship"
+    {
+      "skill": "CSharp"
+    },
+    {
+      "skill": "Java"
+    },
+    {
+      "skill": "PHP"
+    },
+    {
+      "skill": "Business Strategy"
+    },
+    {
+      "skill": "Leadership"
+    },
+    {
+      "skill": "Entrepreneurship"
+    }
   ],
   "education": [
     {
