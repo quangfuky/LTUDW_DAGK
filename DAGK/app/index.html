@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="sampleApp" >
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>DAGK</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,19 +10,24 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
   <link rel="stylesheet" href="css/w3css.css">
   <link rel="stylesheet" href="app.css">
-  <script type="text/javascript" src="app.js"></script>
+  <script src="app.js"></script>
+
 </head>
 
-<body ng-app="myApp" ng-controller="userCtrl">
+<body ng-controller="SampleCtrl" onload=checkAuth()>
   <div>
     <ul class="w3-navbar w3-green w3-padding">
       <li>
-        <a href="#" ng-bind="myUser.name"></a>
+        <a href="#" ng-bind="data.info.name"></a>
       </li>
       <li><a href="#" onclick=showEditButton()>Edit</a></li>
+      <li class="w3-right" id="loginBtn"><a href="#" onclick=Login()>Login</a></li>
+      <li class="w3-right" id="logOutBtn"><a href="#" onclick=LogOut()>Logout</a></li>
     </ul>
   </div>
   <div>
@@ -31,18 +35,18 @@
       <div class="w3-card-4 w3-margin">
         <div class="w3-row">
           <div class="w3-quarter">
-            <img ng-src="{{myUser.image}}" alt="Nature" style="width:100%; height:100%">
+            <img ng-src="{{data.info.image}}" alt="Nature" style="width:100%; height:100%">
           </div>
           <div class="w3-threequarter w3-padding-ver-16">
             <div class="w3-container w3-padding-hor-8">
-              <h3><b>{{myUser.name}}</b><span class="w3-right"><button onclick="document.getElementById('id02').style.display='block'"
+              <h3><b>{{data.info.name}}</b><span class="w3-right"><button onclick="document.getElementById('id02').style.display='block'"
 class="w3-btn editButton" style="display:none">Edit</button><span></h3>
-              <h5><span class="w3-opacity">{{myUser.job}}</span></h5>
+              <h5><span class="w3-opacity">{{data.info.job}}</span></h5>
             </div>
             <div class="w3-container w3-small">
-              <p style="margin:0px"><span class="w3-opacity">Current: </span>{{myUser.current}}</p>
-              <p style="margin:0px"><span class="w3-opacity">Previous: </span>{{myUser.previous}}</p>
-              <p style="margin:0px"><span class="w3-opacity">Education: </span>{{myUser.education}}</p>
+              <p style="margin:0px"><span class="w3-opacity">Current: </span>{{data.info.current}}</p>
+              <p style="margin:0px"><span class="w3-opacity">Previous: </span>{{data.info.previous}}</p>
+              <p style="margin:0px"><span class="w3-opacity">Education: </span>{{data.info.education}}</p>
             </div>
           </div>
         </div>
@@ -62,7 +66,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           </div>
           <div class="w3-container w3-small w3-padding-ver-64">
             <p>
-              {{sumary}}</p>
+              {{data.sumary}}</p>
           </div>
           <hr align="right" style="width:80%">
 
@@ -72,7 +76,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
-              <li ng-repeat="x in experience">
+              <li ng-repeat="x in data.experience">
                 <div>
                   <div>
                     <h4><b>{{x.job}}</b></h4>
@@ -96,7 +100,7 @@ class="w3-btn w3-right editButton"style="display:none">Edit</button></h4>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
-              <li ng-repeat="x in project">
+              <li ng-repeat="x in data.project">
                 <div>
                   <h4><b>{{x.projectname}}</b></h4>
                   <p>
@@ -114,7 +118,7 @@ class="w3-btn editButton" style="display:none">Edit</button></span></h5>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
-              <li ng-repeat="x in skill">
+              <li ng-repeat="x in data.skill">
                 <span class="w3-card-2">{{x.skill}}</span>
               </li>
 
@@ -128,7 +132,7 @@ class="w3-btn editButton" style="display:none">Edit</button></span></h5>
           </div>
           <div class="w3-container w3-small w3-padding-ver-32">
             <ul class="w3-ul">
-              <li ng-repeat="x in education">
+              <li ng-repeat="x in data.education">
                 <div>
                   <h4><b>{{x.school}}</b></h4>
                   <p class="w3-opacity">
@@ -148,10 +152,8 @@ class="w3-btn editButton" style="display:none">Edit</button></span></h5>
           </div>
           <div class="w3-container">
             <p class="w3-small">
-              Sử dụng AngularJS để xây dựng trang CV cá nhân tương tự như của LinkedIn (tham khảo
-https://www.linkedin.com). Dữ liệu mặc định được tổ chức thành các tập tin
-json và thông qua AngularJS để đọc và hiển thị. Từ trang web mặc định có thể thông qua giao
-diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
+              Sử dụng AngularJS để xây dựng trang CV cá nhân tương tự như của LinkedIn (tham khảo https://www.linkedin.com). Dữ liệu mặc định được tổ chức thành các tập tin json và thông qua AngularJS để đọc và hiển thị. Từ trang web mặc định có thể thông qua giao
+              diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
             </p>
           </div>
         </div>
@@ -184,15 +186,15 @@ diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
         </div>
         <form class="w3-container">
           <label clas="w3-label">Name</label>
-          <input class=" w3-input" type="text" ng-model="myUser.name" value="{{myUser.name}}"></input>
+          <input class=" w3-input" type="text" ng-model="data.info.name" value="{{data.info.name}}"></input>
           <label clas="w3-label">Jobs</label>
-          <input class="w3-input" type="text" ng-model="myUser.job" value="{{myUser.name}}" />
+          <input class="w3-input" type="text" ng-model="data.info.job" value="{{data.info.name}}" />
           <label clas="w3-label">Current</label>
-          <input class="w3-input" type="text" ng-model="myUser.current" value="{{myUser.name}}" />
+          <input class="w3-input" type="text" ng-model="data.info.current" value="{{data.info.name}}" />
           <label clas="w3-label">Previous</label>
-          <input class="w3-input" type="text" ng-model="myUser.previous" value="{{myUser.name}}" />
+          <input class="w3-input" type="text" ng-model="data.info.previous" value="{{data.info.name}}" />
           <label clas="w3-label">Education</label>
-          <input class="w3-input" type="text" ng-model="myUser.education" value="{{myUser.name}}" />
+          <input class="w3-input" type="text" ng-model="data.info.education" value="{{data.info.name}}" />
         </form>
         <div class="w3-container w3-blue">
           <h5></h5>
@@ -206,7 +208,7 @@ diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
           <span onclick="document.getElementById('id03').style.display='none'" class="w3-closebtn">&times;</span>
           <h4>Skill</h4>
         </div>
-        <form class="w3-container" ng-repeat="x in skill">
+        <form class="w3-container" ng-repeat="x in data.skill">
           <input type="text" ng-model="x.skill" value="{{x.skill}}" class="w3-input" rows="4" style="resize:horizontal">
           </input>
         </form>
@@ -222,7 +224,7 @@ diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
           <span onclick="document.getElementById('id04').style.display='none'" class="w3-closebtn">&times;</span>
           <h4>Project</h4>
         </div>
-        <form class="w3-container" ng-repeat="x in project">
+        <form class="w3-container" ng-repeat="x in data.project">
           <label class="w3-label">Name</label>
           <input type="text" ng-model="x.projectname" value="{{x.projectname}}" class="w3-input">
           </input>
@@ -244,7 +246,7 @@ diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
           <span onclick="document.getElementById('id05').style.display='none'" class="w3-closebtn">&times;</span>
           <h4>Experience</h4>
         </div>
-        <form class="w3-container" ng-repeat="x in experience">
+        <form class="w3-container" ng-repeat="x in data.experience">
           <label class="w3-label">Job</label>
           <input type="text" ng-model="x.job" value="{{x.job}}" class="w3-input">
           </input>
@@ -268,7 +270,7 @@ diện tương tự LinkedIn để sửa đổi, bổ sung thông tin của CV.
           <span onclick="document.getElementById('id06').style.display='none'" class="w3-closebtn">&times;</span>
           <h4>Experience</h4>
         </div>
-        <form class="w3-container" ng-repeat="x in education">
+        <form class="w3-container" ng-repeat="x in data.education">
           <label class="w3-label">School</label>
           <input type="text" ng-model="x.school" value="{{x.school}}" class="w3-input">
           </input>
